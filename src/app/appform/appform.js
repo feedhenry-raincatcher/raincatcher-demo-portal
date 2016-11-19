@@ -31,6 +31,9 @@ angular.module('app.appform', ['ui.router'])
               return appformClient.list();
             }
           }
+        },
+        'content': {
+          templateUrl: 'app/appform/empty.tpl.html'
         }
       }
     });
