@@ -6,6 +6,8 @@ require('feedhenry');
 angular.module('app', [
   require('angular-ui-router')
 , require('angular-material')
+
+//  These are the Raincatcher Modules that this Portal app requires.
 , require('fh-wfm-mediator')
 , require('fh-wfm-workorder')
 , require('fh-wfm-result')
@@ -21,6 +23,7 @@ angular.module('app', [
 , require('fh-wfm-analytics')
 , require('fh-wfm-camera')
 
+//  Custom functionality for the Portal App.
 , require('./auth/auth')
 , require('./workorder/workorder')
 , require('./workflow/workflow')
@@ -65,6 +68,9 @@ angular.module('app', [
       controller: function($scope, $state, $mdSidenav, mediator, profileData) {
         console.log('profileData', profileData);
         $scope.profileData = profileData;
+
+        //Whenever a new user logs into the portal, update the new details of that user.
+        //This is published by the `raincatcher-user` module after authentication.
         mediator.subscribe('wfm:auth:profile:change', function(_profileData) {
           $scope.profileData = _profileData;
         });

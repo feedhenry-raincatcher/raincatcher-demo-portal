@@ -17,6 +17,12 @@ angular.module('app.map', [
       resolve: {
         workorders: function(workorderManager) {
           return workorderManager.list();
+        },
+        //Getting a list of workers
+        //This will allow adding worker locations to the map if available.
+        //Using the userClient from the raincatcher-user module to list the users.
+        workers: function(userClient) {
+          return userClient.list();
         }
       },
       views: {
@@ -29,9 +35,10 @@ angular.module('app.map', [
     });
 })
 
-.controller('mapController', function($window, $document, $timeout, workorders) {
+.controller('mapController', function($window, $document, $timeout, workorders, workers) {
   this.center = [49.27, -123.08];
   this.workorders = workorders;
-})
 
-;
+  //Setting the worker list to the scope of the controller.
+  this.workers = workers;
+});

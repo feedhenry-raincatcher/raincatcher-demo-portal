@@ -37,29 +37,24 @@ angular.module('app.auth', [
     });
 })
 
+//The `userClient` service is obtained from the `raincatcher-user` module. (https://github.com/feedhenry-raincatcher/raincatcher-user). This service is used to authenticate a user.
 .controller('LoginCtrl', function($state, $rootScope, userClient, hasSession) {
   var self = this;
 
   self.hasSession = hasSession;
 
-  self.login = function(valid) {
-    if (valid) {
-      userClient.auth(self.username, self.password)
-      .then(function() {
-        self.loginMessages.success = true;
-      }, function(err) {
-        console.log(err);
-        self.loginMessages.error = true;
-      });
-    }
-  };
-
   self.loginMessages = {success: false, error: false};
 
+  //Function used in the login form template (login.tpl.html) to accept
+  //login details from the input boxes and attempt to authenticate the user.
   self.login = function(valid) {
+    //If the form is not valid (e.g. there was no password entered, don't try to log in)
     if (!valid) {
       return;
     }
+
+    //Requesting the raincatcher-user module to attempt to authenticate
+    //the `username` and `password` entered.
     userClient.auth(self.username, self.password)
     .then(function() {
       self.loginMessages.success = true;
