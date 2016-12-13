@@ -1,0 +1,22 @@
+<md-toolbar class="content-toolbar">
+  <div class="md-toolbar-tools">
+    <h3>
+      {{ctrl.group.name}} Group
+    </h3>
+
+    <span flex></span>
+    <md-button class="md-icon-button" aria-label="Edit" ui-sref="app.group.edit({groupId: ctrl.group.id})">
+      <md-icon md-font-set="material-icons">edit</md-icon>
+    </md-button>
+    <md-button class="md-icon-button" aria-label="Delete" ng-click="ctrl.delete($event, ctrl.group)">
+      <md-icon md-font-set="material-icons">delete</md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+<md-button class="md-fab" aria-label="New group" ui-sref="app.group.new">
+  <md-icon md-font-set="material-icons">add</md-icon>
+</md-button>
+
+<div class="wfm-maincol-scroll">
+  <group group="ctrl.group" members="ctrl.members"></group>
+</div><!-- wfm-maincol-scroll -->

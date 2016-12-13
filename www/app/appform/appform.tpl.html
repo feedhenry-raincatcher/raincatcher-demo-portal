@@ -1,0 +1,16 @@
+<md-toolbar class="content-toolbar">
+  <div class="md-toolbar-tools">
+    <h3>
+      {{ctrl.form.props.name}} Preview
+    </h3>
+  </div>
+</md-toolbar>
+
+<div class="wfm-maincol-scroll">
+  <div layout-padding layout-margin>
+    <p class="md-body-1">{{ctrl.form.props.description}}</p>
+    <div class="phone-display">
+      <appform form="ctrl.form"></appform>
+    </div>
+  </div>
+</div>
