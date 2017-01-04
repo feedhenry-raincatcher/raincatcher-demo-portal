@@ -6,6 +6,7 @@ require('feedhenry');
 angular.module('app', [
   require('angular-ui-router')
 , require('angular-material')
+, require('./feedhenry')
 , require('fh-wfm-mediator')
 , require('fh-wfm-workorder')
 , require('fh-wfm-result')
@@ -33,6 +34,7 @@ angular.module('app', [
 , require('./schedule/schedule')
 , require('./map/map')
 , require('./analytics/analytics')
+, require('./settings')
 ]);
 
 //Initialising the application with required service, config and initialising script.

@@ -52,6 +52,10 @@
           <md-icon md-font-set="material-icons">insert_chart</md-icon>
           <p>Analytics</p>
         </md-list-item>
+        <md-list-item ng-click="navigateTo('app.settings')" ng-class="{active: $state.includes('app.settings')}">
+          <md-icon md-font-set="material-icons">check_box</md-icon>
+          <p>Settings</p>
+        </md-list-item>
 
         <md-divider></md-divider>
 
