@@ -71,8 +71,6 @@ angular.module('app.auth', [
         $state.go($rootScope.toState, $rootScope.toParams);
         delete $rootScope.toState;
         delete $rootScope.toParams;
-      } else {
-        $state.go('app.workorder');
       }
     }, function(err) {
       self.loginMessages.error = true;

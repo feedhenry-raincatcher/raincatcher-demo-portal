@@ -19,9 +19,6 @@ angular.module('app.workorder', [
         workflows: function(workflowManager) {
           return workflowManager.list();
         },
-        resultManager: function(resultSync) {
-          return resultSync.managerPromise;
-        },
         resultMap: function(resultManager) {
           return resultManager.list()
           .then(function(results) {

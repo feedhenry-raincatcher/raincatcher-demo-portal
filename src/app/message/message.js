@@ -86,11 +86,11 @@ angular.module('app.message', [
 .controller('messageFormController', function() {
 })
 
-.controller('messageNewController', function($scope, $state, mediator, messageManager, workers) {
+.controller('messageNewController', function($scope, $state, mediator, messageManager, workers, profileData) {
   var self = this;
   self.workers = workers;
   mediator.subscribeForScope('wfm:message:created', $scope, function(message) {
-    message.sender = $scope.profileData;
+    message.sender = profileData;
     return messageManager.create(message).then(function() {
       $state.go('app.message', {workers: workers}, {reload: true});
     });
