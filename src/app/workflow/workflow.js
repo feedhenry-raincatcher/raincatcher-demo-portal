@@ -129,6 +129,8 @@ angular.module('app.workflow', [
   $scope.dragControlListeners = {
     containment: '#stepList',
     orderChanged :  function() {
+      //remove generated angular variables
+      workflow = JSON.parse(angular.toJson(workflow));
       workflowManager.update(workflow).then(function(_workflow) {
         $state.go('app.workflow.detail',
          {workflowId: _workflow.id},
@@ -183,6 +185,8 @@ angular.module('app.workflow', [
           .ok('Proceed')
           .cancel('Cancel');
     $mdDialog.show(confirm).then(function() {
+      //remove generated angular variables
+      workflow = JSON.parse(angular.toJson(workflow));
       workflow.steps = workflow.steps.filter(function(item) {
         return item.code !== step.code;
       });
@@ -198,6 +202,8 @@ angular.module('app.workflow', [
   };
 
   mediator.subscribeForScope('wfm:workflow:updated', $scope, function(workflow) {
+    //remove generated angular variables
+    workflow = JSON.parse(angular.toJson(workflow));
     workflowManager.update(workflow).then(function(_workflow) {
       $state.go('app.workflow.detail',
         {workflowId: _workflow.id},
@@ -223,7 +229,6 @@ angular.module('app.workflow', [
 
 .controller('WorkflowFormController', function($scope, $state, mediator, workflow, workflowManager) {
   var self = this;
-
   self.workflow = workflow;
 
   mediator.subscribeForScope('wfm:workflow:updated', $scope, function(workflow) {
@@ -240,13 +245,14 @@ angular.module('app.workflow', [
 
 .controller('WorkflowStepFormController', function($scope, $state, $stateParams, mediator, workflow, workflowManager, forms) {
   var self = this;
-
   self.workflow = workflow;
   self.forms = forms;
   self.step = workflow.steps.filter(function(item) {
     return item.code === $stateParams.code;
   })[0];
   mediator.subscribeForScope('wfm:workflow:updated', $scope, function(workflow) {
+    //remove generated angular variables.
+    workflow = JSON.parse(angular.toJson(workflow));
     workflowManager.update(workflow).then(function(_workflow) {
       $state.go('app.workflow.detail',
       {workflowId: _workflow.id},

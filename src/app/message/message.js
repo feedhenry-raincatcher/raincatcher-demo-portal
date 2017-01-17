@@ -91,6 +91,9 @@ angular.module('app.message', [
   self.workers = workers;
   mediator.subscribeForScope('wfm:message:created', $scope, function(message) {
     message.sender = profileData;
+    //remove generated angular variables
+    message = JSON.parse(angular.toJson(message));
+
     return messageManager.create(message).then(function() {
       $state.go('app.message', {workers: workers}, {reload: true});
     });
