@@ -176,6 +176,8 @@ angular.module('app.workorder', [
   self.workers = workers;
 
   mediator.subscribeForScope('wfm:workorder:created', $scope, function(workorder) {
+    //remove generated angular variables
+    workorder = JSON.parse(angular.toJson(workorder));
     workorderManager.create(workorder).then(function(_workorder) {
       mediator.publish('wfm:workorder:selected', _workorder);
     });
@@ -191,6 +193,8 @@ angular.module('app.workorder', [
   self.result = result;
 
   mediator.subscribeForScope('wfm:workorder:updated', $scope, function(workorder) {
+    //remove generated angular variables
+    workorder = JSON.parse(angular.toJson(workorder));
     return workorderManager.update(workorder).then(function(_workorder) {
       mediator.publish('wfm:workorder:selected', _workorder);
     });
