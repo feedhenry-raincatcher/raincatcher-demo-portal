@@ -129,6 +129,7 @@ angular.module('app.workflow', [
   $scope.dragControlListeners = {
     containment: '#stepList',
     orderChanged :  function() {
+      workflow = JSON.parse(angular.toJson(workflow)); //remove generated angular variables
       workflowManager.update(workflow).then(function(_workflow) {
         $state.go('app.workflow.detail',
          {workflowId: _workflow.id},
