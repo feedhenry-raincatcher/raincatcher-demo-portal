@@ -7,7 +7,8 @@ angular.module('app', [
   require('angular-ui-router')
 , require('angular-material'),
   require('./feedhenry')
-, require('fh-wfm-mediator')
+, require('fh-wfm-mediator'),
+  require('fh-wfm-sync')
 , require('fh-wfm-workorder')
 , require('fh-wfm-result')
 , require('fh-wfm-message')
