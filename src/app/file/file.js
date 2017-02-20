@@ -46,7 +46,7 @@ angular.module('app.file', [
       views: {
         'content@app': {
           templateUrl: 'app/file/file-detail.tpl.html',
-          controller: 'FileController as ctrl'
+          controller: 'FileDetailController as ctrl'
         }
       }
     });
@@ -68,10 +68,17 @@ angular.module('app.file', [
   self.workerMap = workerMap;
 })
 
-.controller('FileController', function($scope, file, workerMap) {
+.controller('FileDetailController', function($scope, $state, file, workerMap, mediator) {
+  mediator.subscribeForScope('wfm:file:close:', $scope, function() {
+    $state.go('app.file');
+  });
   var self = this;
   $scope.$parent.selected = {id: file.id};
   self.file = file;
+  // set display options specifying which parameters of the file to display
+  // should be an array object e.g. all fields {id: true, name: true, uid: true, owner: true, preview:true};
+  self.displayOptions = {id: true, name: true, uid: true, owner: true, preview: true};
+
   self.workerMap = workerMap;
 })
 ;
