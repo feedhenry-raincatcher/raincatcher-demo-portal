@@ -8,6 +8,7 @@ angular.module('app', [
 , require('angular-material')
 , require('./feedhenry')
 , require('fh-wfm-mediator')
+, require('fh-wfm-sync')
 , require('fh-wfm-workorder')
 , require('fh-wfm-result')
 , require('fh-wfm-message')
@@ -21,6 +22,7 @@ angular.module('app', [
 , require('fh-wfm-schedule')
 , require('fh-wfm-analytics')
 , require('fh-wfm-camera')
+
 
 , require('./auth/auth')
 , require('./workorder/workorder')

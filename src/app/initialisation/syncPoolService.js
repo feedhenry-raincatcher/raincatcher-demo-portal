@@ -1,5 +1,6 @@
 var angular = require('angular');
 var _ = require('lodash');
+var config = require('../config.json');
 
 
 /**
@@ -17,10 +18,14 @@ var _ = require('lodash');
  * @param workflowSync
  * @param resultSync
  * @param messageSync
+ * @param syncService
  * @returns {{}}
  */
-function SyncPoolService($q, mediator, workorderSync, workflowSync, resultSync, messageSync) {
+function SyncPoolService($q, mediator, workorderSync, workflowSync, resultSync, messageSync, syncService) {
   var syncPool = {};
+
+  //Initialising the sync service - This is the global initialisation
+  syncService.init(window.$fh, config.syncOptions);
 
   syncPool.removeManagers = function() {
     var promises = [];
@@ -43,14 +48,22 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, resultSync, 
     promises.push(workflowSync.createManager());
     promises.push(messageSync.createManager());
     promises.push(resultSync.createManager());
-    return $q.all(promises).then(function(managers) {
-      var map = {};
-      managers.forEach(function(managerWrapper) {
-        map[managerWrapper.manager.datasetId] = managerWrapper;
+
+    //Initialising the sync managers for the required datasets.
+    return syncService.manage(config.datasetIds.workorders, {}, {}, config.syncOptions)
+      .then(syncService.manage(config.datasetIds.workflows, {}, {}, config.syncOptions))
+      .then(syncService.manage(config.datasetIds.results, {}, {}, config.syncOptions))
+      .then(syncService.manage(config.datasetIds.messages, {}, {}, config.syncOptions))
+      .then(function() {
+        return $q.all(promises).then(function(managers) {
+          var map = {};
+          managers.forEach(function(managerWrapper) {
+            map[managerWrapper.manager.datasetId] = managerWrapper;
+          });
+          map.workorders.manager.publishRecordDeltaReceived(mediator);
+          return map;
+        });
       });
-      map.workorders.manager.publishRecordDeltaReceived(mediator);
-      return map;
-    });
   };
 
   syncPool.forceSync = function(managers) {
@@ -70,4 +83,4 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, resultSync, 
   return syncPool;
 }
 
-angular.module('app').service('syncPool', ["$q", "mediator", "workorderSync", "workflowSync", "resultSync", "messageSync", SyncPoolService]);
+angular.module('app').service('syncPool', ["$q", "mediator", "workorderSync", "workflowSync", "resultSync", "messageSync", "syncService", SyncPoolService]);
