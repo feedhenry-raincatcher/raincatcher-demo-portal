@@ -1,5 +1,7 @@
 var angular = require('angular');
 
+var workorderCoreModule = require('fh-wfm-workorder/lib/client');
+
 /**
  * Script to subscribe to the `wfm:auth:profile:change` topic.
  *
@@ -98,7 +100,18 @@ function verifyLoginOnStateChange($rootScope, $state, userClient) {
   });
 }
 
+/**
+ *
+ * Initialising the core modules.
+ *
+ * @param {Mediator} mediator
+ */
+function initCoreModules(mediator) {
+  workorderCoreModule(mediator);
+}
 
-angular.module('app').run(["$rootScope", "$q", "mediator", "userClient", createWFMInitialisationPromises])
+angular.module('app')
+  .run(["mediator", initCoreModules])
+  .run(["$rootScope", "$q", "mediator", "userClient", createWFMInitialisationPromises])
   .run(["$state", "mediator", "syncPool", subscribeToUserChange])
   .run(["$rootScope", "$state", "userClient", verifyLoginOnStateChange]);
