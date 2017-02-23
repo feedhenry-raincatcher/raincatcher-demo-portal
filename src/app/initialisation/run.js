@@ -1,6 +1,7 @@
 var angular = require('angular');
 
 var workorderCoreModule = require('fh-wfm-workorder/lib/client');
+var workflowCoreModule = require('fh-wfm-workflow/lib/client');
 
 /**
  * Script to subscribe to the `wfm:auth:profile:change` topic.
@@ -53,7 +54,7 @@ function createWFMInitialisationPromises($rootScope, $q, mediator, userClient) {
     $rootScope.ready = true;
     console.log(initPromises.length, 'init promises resolved.');
     mediator.remove('promise:init', initListener.id);
-    userClient.clearSession();
+    //userClient.clearSession();
 
     return null;
   });
@@ -108,6 +109,7 @@ function verifyLoginOnStateChange($rootScope, $state, userClient) {
  */
 function initCoreModules(mediator) {
   workorderCoreModule(mediator);
+  workflowCoreModule(mediator);
 }
 
 angular.module('app')

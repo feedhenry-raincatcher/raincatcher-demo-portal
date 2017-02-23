@@ -6,6 +6,7 @@ require('fh-js-sdk/dist/feedhenry-forms.js');
 angular.module('app', [
   require('angular-ui-router')
 , require('angular-material'),
+  require('ng-sortable'),
   require('./feedhenry')
 , require('fh-wfm-mediator'),
   require('fh-wfm-sync')
@@ -17,7 +18,7 @@ angular.module('app', [
 , require('fh-wfm-result')
 , require('fh-wfm-message')
 , require('fh-wfm-file')
-, require('fh-wfm-workflow')
+, require('fh-wfm-workflow-angular')({})
 , require('fh-wfm-appform')
 , require('fh-wfm-user')
 , require('fh-wfm-risk-assessment')
@@ -27,7 +28,6 @@ angular.module('app', [
 , require('fh-wfm-analytics')
 , require('fh-wfm-camera')
 , require('./auth/auth')
-, require('./workflow/workflow')
 , require('./home/home')
 , require('./appform/appform')
 , require('./worker/worker')
