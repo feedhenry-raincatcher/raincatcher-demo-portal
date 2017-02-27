@@ -64,7 +64,7 @@ angular.module('app.workorder', [
           templateUrl: 'app/workorder/workorder-detail.tpl.html',
           controller: 'WorkorderDetailController as ctrl',
           resolve: {
-            workorder: function($stateParams, appformClient, workorderManager) {
+            workorder: function($stateParams, workorderManager) {
               return workorderManager.read($stateParams.workorderId);
             },
             workers: function(userClient) {
