@@ -23,7 +23,6 @@ angular.module('app', [
 , require('fh-wfm-analytics')
 , require('fh-wfm-camera')
 
-
 , require('./auth/auth')
 , require('./workorder/workorder')
 , require('./workflow/workflow')
