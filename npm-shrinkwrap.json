@@ -54,7 +54,7 @@
         },
         "content-type": {
           "version": "1.0.2",
-          "from": "content-type@>=1.0.1 <1.1.0",
+          "from": "content-type@>=1.0.2 <1.1.0",
           "resolved": "https://registry.npmjs.org/content-type/-/content-type-1.0.2.tgz"
         },
         "debug": {
@@ -86,7 +86,7 @@
             },
             "statuses": {
               "version": "1.3.1",
-              "from": "statuses@>=1.2.1 <2.0.0",
+              "from": "statuses@>=1.3.0 <1.4.0",
               "resolved": "https://registry.npmjs.org/statuses/-/statuses-1.3.1.tgz"
             }
           }
@@ -125,14 +125,14 @@
             },
             "unpipe": {
               "version": "1.0.0",
-              "from": "unpipe@1.0.0",
+              "from": "unpipe@>=1.0.0 <1.1.0",
               "resolved": "https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz"
             }
           }
         },
         "type-is": {
           "version": "1.6.14",
-          "from": "type-is@>=1.6.11 <1.7.0",
+          "from": "type-is@>=1.6.13 <1.7.0",
           "resolved": "https://registry.npmjs.org/type-is/-/type-is-1.6.14.tgz",
           "dependencies": {
             "media-typer": {
@@ -185,7 +185,7 @@
       "dependencies": {
         "vary": {
           "version": "1.1.0",
-          "from": "vary@>=1.0.0 <2.0.0",
+          "from": "vary@>=1.1.0 <1.2.0",
           "resolved": "https://registry.npmjs.org/vary/-/vary-1.1.0.tgz"
         }
       }
@@ -207,7 +207,7 @@
           "dependencies": {
             "mime-types": {
               "version": "2.1.14",
-              "from": "mime-types@>=2.1.11 <2.2.0",
+              "from": "mime-types@>=2.1.13 <2.2.0",
               "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.1.14.tgz",
               "dependencies": {
                 "mime-db": {
@@ -469,7 +469,7 @@
             },
             "mime-types": {
               "version": "2.1.14",
-              "from": "mime-types@>=2.1.11 <2.2.0",
+              "from": "mime-types@>=2.1.13 <2.2.0",
               "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.1.14.tgz",
               "dependencies": {
                 "mime-db": {
@@ -488,7 +488,7 @@
         },
         "vary": {
           "version": "1.1.0",
-          "from": "vary@>=1.0.0 <2.0.0",
+          "from": "vary@>=1.1.0 <1.2.0",
           "resolved": "https://registry.npmjs.org/vary/-/vary-1.1.0.tgz"
         }
       }
@@ -559,6 +559,7 @@
     "fh-wfm-file": {
       "version": "0.0.9",
       "from": "fh-wfm-file@0.0.9",
+      "resolved": "https://registry.npmjs.org/fh-wfm-file/-/fh-wfm-file-0.0.9.tgz",
       "dependencies": {
         "base64-stream": {
           "version": "0.1.3",
@@ -823,7 +824,7 @@
             },
             "xtend": {
               "version": "4.0.1",
-              "from": "xtend@>=4.0.0 <4.1.0",
+              "from": "xtend@>=4.0.0 <5.0.0",
               "resolved": "https://registry.npmjs.org/xtend/-/xtend-4.0.1.tgz"
             }
           }
@@ -837,11 +838,13 @@
     },
     "fh-wfm-map": {
       "version": "0.0.11",
-      "from": "fh-wfm-map@0.0.11"
+      "from": "fh-wfm-map@0.0.11",
+      "resolved": "https://registry.npmjs.org/fh-wfm-map/-/fh-wfm-map-0.0.11.tgz"
     },
     "fh-wfm-mediator": {
       "version": "0.3.1",
       "from": "fh-wfm-mediator@0.3.1",
+      "resolved": "https://registry.npmjs.org/fh-wfm-mediator/-/fh-wfm-mediator-0.3.1.tgz",
       "dependencies": {
         "bluebird": {
           "version": "3.5.0",
@@ -853,6 +856,7 @@
     "fh-wfm-message": {
       "version": "0.1.0",
       "from": "fh-wfm-message@0.1.0",
+      "resolved": "https://registry.npmjs.org/fh-wfm-message/-/fh-wfm-message-0.1.0.tgz",
       "dependencies": {
         "ng-feedhenry": {
           "version": "0.3.0",
@@ -869,6 +873,7 @@
     "fh-wfm-result": {
       "version": "0.1.1",
       "from": "fh-wfm-result@0.1.1",
+      "resolved": "https://registry.npmjs.org/fh-wfm-result/-/fh-wfm-result-0.1.1.tgz",
       "dependencies": {
         "ng-feedhenry": {
           "version": "0.3.0",
@@ -901,11 +906,13 @@
     },
     "fh-wfm-sync": {
       "version": "0.1.0",
-      "from": "fh-wfm-sync@0.1.0"
+      "from": "fh-wfm-sync@0.1.0",
+      "resolved": "https://registry.npmjs.org/fh-wfm-sync/-/fh-wfm-sync-0.1.0.tgz"
     },
     "fh-wfm-user": {
-      "version": "0.3.1",
-      "from": "fh-wfm-user@0.3.1",
+      "version": "0.4.0-1",
+      "from": "fh-wfm-user@0.4.0-1",
+      "resolved": "https://registry.npmjs.org/fh-wfm-user/-/fh-wfm-user-0.4.0-1.tgz",
       "dependencies": {
         "connect-mongo": {
           "version": "1.3.2",
@@ -926,7 +933,7 @@
           "dependencies": {
             "debug": {
               "version": "2.6.1",
-              "from": "debug@2.6.1",
+              "from": "debug@>=2.2.0 <3.0.0",
               "resolved": "https://registry.npmjs.org/debug/-/debug-2.6.1.tgz",
               "dependencies": {
                 "ms": {
@@ -965,7 +972,7 @@
             },
             "debug": {
               "version": "2.6.1",
-              "from": "debug@2.6.1",
+              "from": "debug@>=2.2.0 <3.0.0",
               "resolved": "https://registry.npmjs.org/debug/-/debug-2.6.1.tgz",
               "dependencies": {
                 "ms": {
@@ -2773,6 +2780,7 @@
         "fh-wfm-simple-store": {
           "version": "0.1.2",
           "from": "fh-wfm-simple-store@0.1.2",
+          "resolved": "https://registry.npmjs.org/fh-wfm-simple-store/-/fh-wfm-simple-store-0.1.2.tgz",
           "dependencies": {
             "bluebird": {
               "version": "3.4.7",
@@ -2906,6 +2914,7 @@
     "fh-wfm-workflow": {
       "version": "0.1.1",
       "from": "fh-wfm-workflow@0.1.1",
+      "resolved": "https://registry.npmjs.org/fh-wfm-workflow/-/fh-wfm-workflow-0.1.1.tgz",
       "dependencies": {
         "ng-feedhenry": {
           "version": "0.3.0",
@@ -2925,13 +2934,43 @@
       }
     },
     "fh-wfm-workorder": {
-      "version": "0.1.1",
-      "from": "fh-wfm-workorder@0.1.1",
+      "version": "0.2.0-1",
+      "from": "fh-wfm-workorder@0.2.0-1",
+      "resolved": "https://registry.npmjs.org/fh-wfm-workorder/-/fh-wfm-workorder-0.2.0-1.tgz",
       "dependencies": {
-        "ng-feedhenry": {
-          "version": "0.3.0",
-          "from": "ng-feedhenry@0.3.0",
-          "resolved": "https://registry.npmjs.org/ng-feedhenry/-/ng-feedhenry-0.3.0.tgz"
+        "shortid": {
+          "version": "2.2.6",
+          "from": "shortid@2.2.6",
+          "resolved": "https://registry.npmjs.org/shortid/-/shortid-2.2.6.tgz"
+        }
+      }
+    },
+    "fh-wfm-workorder-angular": {
+      "version": "0.2.0-2",
+      "from": "fh-wfm-workorder-angular@0.2.0-2",
+      "resolved": "https://registry.npmjs.org/fh-wfm-workorder-angular/-/fh-wfm-workorder-angular-0.2.0-2.tgz",
+      "dependencies": {
+        "angular-animate": {
+          "version": "1.6.2",
+          "from": "angular-animate@1.6.2",
+          "resolved": "https://registry.npmjs.org/angular-animate/-/angular-animate-1.6.2.tgz"
+        },
+        "angular-aria": {
+          "version": "1.6.2",
+          "from": "angular-aria@1.6.2",
+          "resolved": "https://registry.npmjs.org/angular-aria/-/angular-aria-1.6.2.tgz"
+        },
+        "fh-wfm-mediator": {
+          "version": "0.2.0-0",
+          "from": "fh-wfm-mediator@0.2.0-0",
+          "resolved": "https://registry.npmjs.org/fh-wfm-mediator/-/fh-wfm-mediator-0.2.0-0.tgz",
+          "dependencies": {
+            "bluebird": {
+              "version": "3.5.0",
+              "from": "bluebird@>=3.4.7 <4.0.0",
+              "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-3.5.0.tgz"
+            }
+          }
         },
         "shortid": {
           "version": "2.2.6",
