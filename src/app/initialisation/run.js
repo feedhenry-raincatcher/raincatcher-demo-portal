@@ -54,7 +54,7 @@ function createWFMInitialisationPromises($rootScope, $q, mediator, userClient) {
     $rootScope.ready = true;
     console.log(initPromises.length, 'init promises resolved.');
     mediator.remove('promise:init', initListener.id);
-    //userClient.clearSession();
+    userClient.clearSession();
 
     return null;
   });
