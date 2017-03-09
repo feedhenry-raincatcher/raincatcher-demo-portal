@@ -18,7 +18,11 @@ angular.module('app', [
 , require('fh-wfm-result')
 , require('fh-wfm-message')
 , require('fh-wfm-file')
-, require('fh-wfm-workflow-angular')({})
+, require('fh-wfm-workflow-angular')({
+  mode: "admin",
+  listColumnViewId: "column2",
+  mainColumnViewId: "content@app"
+})
 , require('fh-wfm-appform')
 , require('fh-wfm-user')
 , require('fh-wfm-risk-assessment')
