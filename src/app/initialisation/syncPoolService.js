@@ -49,7 +49,6 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, resultSync, 
     promises.push(messageSync.createManager());
     promises.push(resultSync.createManager());
 
-    console.log("STarting Manage");
     //Initialising the sync managers for the required datasets.
     return syncService.manage(config.datasetIds.workorders, {}, {}, config.syncOptions)
       .then(syncService.manage(config.datasetIds.workflows, {}, {}, config.syncOptions))
