@@ -18,7 +18,11 @@ angular.module('app', [
   listColumnViewId: "column2",
   mainColumnViewId: "content@app"
 })
-, require('fh-wfm-message')
+, require('fh-wfm-message-angular')({
+  mode: 'admin',
+  listColumnViewId: "column2",
+  mainColumnViewId: "content@app"
+})
 , require('fh-wfm-workflow-angular')({
   mode: "admin",
   listColumnViewId: "column2",
