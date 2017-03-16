@@ -2,6 +2,7 @@ var angular = require('angular');
 
 var workorderCoreModule = require('fh-wfm-workorder/lib/client');
 var workflowCoreModule = require('fh-wfm-workflow/lib/client');
+var resultCoreModule = require('fh-wfm-result/lib/client');
 
 /**
  * Script to subscribe to the `wfm:auth:profile:change` topic.
@@ -110,6 +111,7 @@ function verifyLoginOnStateChange($rootScope, $state, userClient) {
 function initCoreModules(mediator) {
   workorderCoreModule(mediator);
   workflowCoreModule(mediator);
+  resultCoreModule(mediator);
 }
 
 angular.module('app')

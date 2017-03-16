@@ -39,9 +39,6 @@ function AppConfig($stateProvider, $urlRouterProvider) {
         workflowManager: function(syncManagers) {
           return syncManagers.workflows;
         },
-        resultManager: function(syncManagers) {
-          return syncManagers.result;
-        },
         messageManager: function(syncManagers) {
           return syncManagers.messages;
         }

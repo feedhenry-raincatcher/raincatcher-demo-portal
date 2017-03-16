@@ -15,7 +15,6 @@ angular.module('app', [
   listColumnViewId: "column2",
   mainColumnViewId: "content@app"
 })
-, require('fh-wfm-result')
 , require('fh-wfm-message')
 , require('fh-wfm-file')
 , require('fh-wfm-workflow-angular')({

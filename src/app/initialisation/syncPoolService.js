@@ -21,7 +21,7 @@ var config = require('../config.json');
  * @param syncService
  * @returns {{}}
  */
-function SyncPoolService($q, mediator, workorderSync, workflowSync, resultSync, messageSync, syncService) {
+function SyncPoolService($q, mediator, workorderSync, workflowSync, messageSync, syncService) {
   var syncPool = {};
 
   //Initialising the sync service - This is the global initialisation
@@ -32,7 +32,6 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, resultSync, 
     promises.push(workorderSync.removeManager());
     promises.push(messageSync.removeManager());
     promises.push(workflowSync.removeManager());
-    promises.push(resultSync.removeManager());
     return $q.all(promises);
   };
 
@@ -47,7 +46,6 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, resultSync, 
     promises.push(workorderSync.createManager());
     promises.push(workflowSync.createManager());
     promises.push(messageSync.createManager());
-    promises.push(resultSync.createManager());
     //Initialising the sync managers for the required datasets.
     return syncService.manage(config.datasetIds.workorders, {}, {}, config.syncOptions)
       .then(syncService.manage(config.datasetIds.workflows, {}, {}, config.syncOptions))
@@ -83,4 +81,4 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, resultSync, 
   return syncPool;
 }
 
-angular.module('app').service('syncPool', ["$q", "mediator", "workorderSync", "workflowSync", "resultSync", "messageSync", "syncService", SyncPoolService]);
+angular.module('app').service('syncPool', ["$q", "mediator", "workorderSync", "workflowSync", "messageSync", "syncService", SyncPoolService]);
