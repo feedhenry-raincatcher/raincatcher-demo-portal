@@ -16,7 +16,6 @@ angular.module('app', [
   mainColumnViewId: "content@app"
 })
 , require('fh-wfm-message')
-, require('fh-wfm-file')
 , require('fh-wfm-workflow-angular')({
   mode: "admin",
   listColumnViewId: "column2",
@@ -36,7 +35,12 @@ angular.module('app', [
 , require('./worker/worker')
 , require('./group/group')
 , require('./message/message')
-, require('./file/file')
+, require('fh-wfm-file-angular')({
+    uploadEnabled: false,
+    listColumnViewId: "column2",
+    mainColumnViewId: "content@app",
+    detailStateMount: "app.file.detail"
+  })
 , require('./schedule/schedule')
 , require('./map/map')
 , require('./analytics/analytics')
