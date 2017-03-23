@@ -4,8 +4,8 @@ var angular = require('angular');
 require('fh-js-sdk/dist/feedhenry-forms.js');
 
 angular.module('app', [
-  require('angular-ui-router')
-, require('angular-material'),
+  require('angular-ui-router'),
+  require('angular-material'),
   require('ng-sortable'),
   require('./feedhenry')
 , require('fh-wfm-mediator'),
@@ -36,11 +36,11 @@ angular.module('app', [
 , require('./group/group')
 , require('./message/message')
 , require('fh-wfm-file-angular')({
-    uploadEnabled: false,
-    listColumnViewId: "column2",
-    mainColumnViewId: "content@app",
-    detailStateMount: "app.file.detail"
-  })
+  uploadEnabled: false,
+  listColumnViewId: "column2",
+  mainColumnViewId: "content@app",
+  detailStateMount: "app.file.detail"
+})
 , require('./schedule/schedule')
 , require('./map/map')
 , require('./analytics/analytics')
