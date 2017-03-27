@@ -18,6 +18,10 @@
   "author": "Brian Leathem",
   "license": "MIT",
   "dependencies": {
+    "cors": "2.7.1",
+    "express": "4.14.0"
+  },
+  "devDependencies": {
     "angular": "1.6.1",
     "angular-animate": "1.5.3",
     "angular-aria": "1.5.3",
@@ -29,9 +33,7 @@
     "body-parser": "1.15.0",
     "c3": "0.4.11",
     "config-chain": "1.1.10",
-    "cors": "2.7.1",
     "d3": "3.5.16",
-    "express": "4.14.0",
     "fh-js-sdk": "2.18.4",
     "fh-wfm-analytics": "0.0.9",
     "fh-wfm-appform": "0.1.0",
@@ -58,9 +60,7 @@
     "q": "1.4.1",
     "rx": "^4.1.0",
     "shortid": "^2.2.6",
-    "underscore": "^1.8.3"
-  },
-  "devDependencies": {
+    "underscore": "^1.8.3",
     "angular-mocks": "1.6.1",
     "browserify": "^14.1.0",
     "browserify-ngannotate": "^2.0.0",
