@@ -37,7 +37,6 @@ angular.module('app', [
 , require('./auth/auth')
 , require('./home/home')
 , require('./appform/appform')
-, require('./worker/worker')
 , require('./group/group')
 , require('./message/message')
 , require('fh-wfm-file-angular')({
