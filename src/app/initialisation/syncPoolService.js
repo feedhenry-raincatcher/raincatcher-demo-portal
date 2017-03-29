@@ -23,45 +23,46 @@ var config = require('../config.json');
  */
 function SyncPoolService($q, mediator, workorderSync, workflowSync, messageSync, syncService) {
   var syncPool = {};
+  var syncManagers;
 
   //Initialising the sync service - This is the global initialisation
   syncService.init(window.$fh, config.syncOptions);
 
   syncPool.removeManagers = function() {
-    var promises = [];
-    promises.push(workorderSync.removeManager());
-    promises.push(messageSync.removeManager());
-    promises.push(workflowSync.removeManager());
-    return $q.all(promises);
+    var promises = _.map(syncManagers, function(syncManager) {
+      return syncManager.safeStop();
+    });
+
+    return $q.all(promises).then(function() {
+      syncManagers = null;
+    });
   };
 
   syncPool.syncManagerMap = function(profileData) {
-
-    //If there is no user profile, don't initialise any of the sync managers.
     if (! profileData) {
       return $q.when({});
     }
-    var promises = [];
-    // add any additonal manager creates here
-    promises.push(workorderSync.createManager());
-    promises.push(workflowSync.createManager());
-    promises.push(messageSync.createManager());
-    //Initialising the sync managers for the required datasets.
-    return syncService.manage(config.datasetIds.workorders, {}, {}, config.syncOptions)
-      .then(syncService.manage(config.datasetIds.workflows, {}, {}, config.syncOptions))
-      .then(syncService.manage(config.datasetIds.results, {}, {}, config.syncOptions))
-      .then(syncService.manage(config.datasetIds.messages, {}, {}, config.syncOptions))
-      .then(function() {
-        return $q.all(promises).then(function(managers) {
-          var map = {};
-          managers.forEach(function(managerWrapper) {
-            map[managerWrapper.manager.datasetId] = managerWrapper;
-            managerWrapper.start();
-          });
-          map.workorders.manager.publishRecordDeltaReceived(mediator);
-          return map;
-        });
+
+    if (syncManagers) {
+      return $q.when(syncManagers);
+    }
+
+    syncManagers = {};
+
+    //Initialisation of sync data sets to manage.
+    return $q.all([
+      syncService.manage(config.datasetIds.workorders, {}, {}, config.syncOptions),
+      syncService.manage(config.datasetIds.workflows, {}, {}, config.syncOptions),
+      syncService.manage(config.datasetIds.results, {}, {}, config.syncOptions),
+      syncService.manage(config.datasetIds.messages, {}, {}, config.syncOptions)
+    ]).then(function(managers) {
+      managers.forEach(function(managerWrapper) {
+        syncManagers[managerWrapper.manager.datasetId] = managerWrapper;
+        managerWrapper.start(); //start sync
       });
+      syncManagers.workorders.manager.publishRecordDeltaReceived(mediator);
+      return syncManagers;
+    });
   };
 
   syncPool.forceSync = function(managers) {

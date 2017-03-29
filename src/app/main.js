@@ -24,7 +24,7 @@ angular.module('app', [
   mainColumnViewId: "content@app"
 })
 , require('fh-wfm-appform')
-, require('fh-wfm-user')
+, require('fh-wfm-user-angular')({})
 , require('fh-wfm-risk-assessment')
 , require('fh-wfm-vehicle-inspection')
 , mapModule({
@@ -34,10 +34,8 @@ angular.module('app', [
 , require('fh-wfm-schedule')
 , require('fh-wfm-analytics')
 , require('fh-wfm-camera')
-, require('./auth/auth')
 , require('./home/home')
 , require('./appform/appform')
-, require('./group/group')
 , require('./message/message')
 , require('fh-wfm-file-angular')({
   uploadEnabled: false,

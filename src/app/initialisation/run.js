@@ -5,6 +5,7 @@ var workorderCoreModule = require('fh-wfm-workorder/lib/client');
 var workflowCoreModule = require('fh-wfm-workflow/lib/client');
 var resultCoreModule = require('fh-wfm-result/lib/client');
 var fileCore = require('fh-wfm-file/lib/client');
+var userCore = require('fh-wfm-user/lib/client');
 
 /**
  * Script to subscribe to the `wfm:auth:profile:change` topic.
@@ -57,7 +58,7 @@ function createWFMInitialisationPromises($rootScope, $q, mediator, userClient) {
     $rootScope.ready = true;
     console.log(initPromises.length, 'init promises resolved.');
     mediator.remove('promise:init', initListener.id);
-    //userClient.clearSession();
+    userClient.clearSession();
 
     return null;
   });
@@ -115,6 +116,7 @@ function initCoreModules(mediator) {
   workflowCoreModule(mediator);
   resultCoreModule(mediator);
   fileCore(mediator,{},$fh);
+  userCore(mediator);
 }
 
 angular.module('app')
