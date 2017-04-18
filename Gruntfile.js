@@ -198,5 +198,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', ['clean:dist', 'sass', 'copy', 'clean:server', 'browserify']);
 
-  grunt.registerTask('default', ['serve']);
+  grunt.registerTask('default', ['serve:local']);
 };
