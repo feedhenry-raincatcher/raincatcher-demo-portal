@@ -1,6 +1,6 @@
 {
   "name": "fh-wfm-demo-portal",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "A WFM2 PoC using the mediator pattern",
   "repository": "https://github.com/feedhenry-raincatcher/raincatcher-demo-portal.git",
   "engines": {
