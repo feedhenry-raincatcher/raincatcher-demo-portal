@@ -3,7 +3,6 @@
     "workorders": "workorders",
     "workflows": "workflows",
     "results": "result",
-    "messages": "messages"
   },
   "syncOptions" : {
     "sync_frequency" : 5,

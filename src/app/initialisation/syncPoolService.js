@@ -9,7 +9,6 @@ var config = require('../config.json');
  *
  * - workorders
  * - workflows
- * - messages
  * - workflow results
  *
  * @param $q
@@ -17,11 +16,10 @@ var config = require('../config.json');
  * @param workorderSync
  * @param workflowSync
  * @param resultSync
- * @param messageSync
  * @param syncService
  * @returns {{}}
  */
-function SyncPoolService($q, mediator, workorderSync, workflowSync, messageSync, syncService) {
+function SyncPoolService($q, mediator, workorderSync, workflowSync, syncService) {
   var syncPool = {};
   var syncManagers;
 
@@ -54,7 +52,6 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, messageSync,
       syncService.manage(config.datasetIds.workorders, {}, {}, config.syncOptions),
       syncService.manage(config.datasetIds.workflows, {}, {}, config.syncOptions),
       syncService.manage(config.datasetIds.results, {}, {}, config.syncOptions),
-      syncService.manage(config.datasetIds.messages, {}, {}, config.syncOptions)
     ]).then(function(managers) {
       managers.forEach(function(managerWrapper) {
         syncManagers[managerWrapper.manager.datasetId] = managerWrapper;
@@ -82,4 +79,4 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, messageSync,
   return syncPool;
 }
 
-angular.module('app').service('syncPool', ["$q", "mediator", "workorderSync", "workflowSync", "messageSync", "syncService", SyncPoolService]);
+angular.module('app').service('syncPool', ["$q", "mediator", "workorderSync", "workflowSync", "syncService", SyncPoolService]);

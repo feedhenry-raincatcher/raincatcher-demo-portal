@@ -18,7 +18,6 @@ angular.module('app', [
   listColumnViewId: "column2",
   mainColumnViewId: "content@app"
 })
-, require('fh-wfm-message')
 , require('fh-wfm-workflow-angular')({
   mode: "admin",
   listColumnViewId: "column2",
@@ -37,7 +36,6 @@ angular.module('app', [
 , require('fh-wfm-camera')
 , require('./home/home')
 , require('./appform/appform')
-, require('./message/message')
 , require('fh-wfm-file-angular')({
   uploadEnabled: false,
   listColumnViewId: "column2",

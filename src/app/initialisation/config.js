@@ -9,7 +9,6 @@ var angular = require('angular');
  *
  * - workorders
  * - workflows
- * - messages
  * - workflow results
  *
  * @param $stateProvider
@@ -39,9 +38,6 @@ function AppConfig($stateProvider, $urlRouterProvider) {
         workflowManager: function(syncManagers) {
           return syncManagers.workflows;
         },
-        messageManager: function(syncManagers) {
-          return syncManagers.messages;
-        }
       },
       controller: function($scope, $state, $mdSidenav, mediator, profileData) {
         $scope.profileData = profileData;
