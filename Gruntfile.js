@@ -1,10 +1,9 @@
 'use strict';
 
-var browserifyNgannotate = require('browserify-ngannotate'),
-    uglifyify = require('uglifyify'),
-    _ = require('lodash');
+var uglifyify = require('uglifyify');
+var _ = require('lodash');
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -53,30 +52,30 @@ module.exports = function (grunt) {
             dest: '<%= app.dist %>',
             filter: 'isFile'
           }
-        ],
+        ]
       },
       css: {
         files: [
-          {cwd: 'node_modules/', src: ['angular-material/angular-material.css', 'c3/c3.css'], dest: '<%= app.dist %>/css/', expand: true, flatten: true }
+        {cwd: 'node_modules/', src: ['angular-material/angular-material.css', 'c3/c3.css'], dest: '<%= app.dist %>/css/', expand: true, flatten: true }
         ]
       }
     },
 
     sass: {
-        options: {
-            sourceMap: true
-        },
-        dist: {
-            files: {
-                '<%= app.dist %>/css/portal.css': '<%= app.src %>/sass/portal.scss'
-            }
+      options: {
+        sourceMap: true
+      },
+      dist: {
+        files: {
+          '<%= app.dist %>/css/portal.css': '<%= app.src %>/sass/portal.scss'
         }
+      }
     },
 
     browserify: {
       options: {
         browserifyOptions: {
-           debug: true
+          debug: true
         }
       },
       bundle: {
@@ -86,11 +85,7 @@ module.exports = function (grunt) {
         options: {
           watch: true,
           alias: browserifyConfg.alias,
-          external: browserifyConfg.external,
-          transform: [
-            // [browserifyNgannotate, {global: true}]
-            // , [uglifyify, {global: true}]
-          ]
+          external: browserifyConfg.external
         }
       },
       vendor: {
@@ -178,10 +173,10 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('serve', function (target) {
+  grunt.registerTask('serve', function(target) {
     if (target === 'local') {
       var conn = 'http://' + grunt.config.get('connect.options.hostname') + ':' +
-        grunt.config.get('connect.options.port');
+      grunt.config.get('connect.options.port');
       var url = grunt.option('url') || grunt.config.get('app.default_local_server_url');
       grunt.config.set('app.url', conn + '/?url=' + url);
     } else {

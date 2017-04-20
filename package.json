@@ -9,7 +9,7 @@
   },
   "main": "application.js",
   "scripts": {
-    "start": "node application.js",
+    "start": "grunt",
     "test": "grunt test"
   },
   "keywords": [
@@ -24,13 +24,10 @@
   "devDependencies": {
     "angular": "1.6.1",
     "angular-animate": "1.5.3",
-    "angular-aria": "1.5.3",
     "angular-material": "1.0.7",
     "angular-ui-router": "0.4.2",
     "async": "1.5.2",
-    "body-parser": "1.17.1",
     "c3": "0.4.11",
-    "config-chain": "1.1.10",
     "debug": "2.6.3",
     "d3": "3.5.16",
     "fh-js-sdk": "2.18.4",

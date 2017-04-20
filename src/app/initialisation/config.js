@@ -37,7 +37,7 @@ function AppConfig($stateProvider, $urlRouterProvider) {
         },
         workflowManager: function(syncManagers) {
           return syncManagers.workflows;
-        },
+        }
       },
       controller: function($scope, $state, $mdSidenav, mediator, profileData) {
         $scope.profileData = profileData;

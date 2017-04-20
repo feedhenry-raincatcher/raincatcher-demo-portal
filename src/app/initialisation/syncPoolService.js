@@ -51,7 +51,7 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, syncService)
     return $q.all([
       syncService.manage(config.datasetIds.workorders, {}, {}, config.syncOptions),
       syncService.manage(config.datasetIds.workflows, {}, {}, config.syncOptions),
-      syncService.manage(config.datasetIds.results, {}, {}, config.syncOptions),
+      syncService.manage(config.datasetIds.results, {}, {}, config.syncOptions)
     ]).then(function(managers) {
       managers.forEach(function(managerWrapper) {
         syncManagers[managerWrapper.manager.datasetId] = managerWrapper;
