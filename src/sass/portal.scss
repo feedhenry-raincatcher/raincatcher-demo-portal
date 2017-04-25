@@ -19,12 +19,13 @@ $danger: #F44336; //red 500
 .success{ color: $success;}
 .danger{ color: $danger;}
 
-@import 'node_modules/fh-wfm-appform/lib/appform.scss';
+@import 'node_modules/fh-wfm-signature/lib/signature.scss';
 @import 'node_modules/fh-wfm-risk-assessment/lib/risk-assessment.scss';
 @import 'node_modules/fh-wfm-schedule/lib/schedule.scss';
 @import 'node_modules/fh-wfm-vehicle-inspection/lib/vehicle-inspection.scss';
 @import 'node_modules/fh-wfm-workflow-angular/lib/workflow.scss';
 @import 'node_modules/fh-wfm-workorder-angular/lib/workorder.scss';
+@import 'node_modules/fh-wfm-file-angular/lib/file.scss';
 
 // tabs
 md-tabs md-tab-item{
@@ -97,12 +98,6 @@ md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-ta
   .wfm-chip-name{
     margin: 0 12px;
   }
-}
-
-
-// appform
-.appform-list tbody tr {
-  cursor: pointer;
 }
 
 // appform phone

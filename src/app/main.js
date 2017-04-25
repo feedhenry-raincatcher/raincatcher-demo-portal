@@ -23,7 +23,6 @@ angular.module('app', [
   listColumnViewId: "column2",
   mainColumnViewId: "content@app"
 })
-, require('fh-wfm-appform')
 , require('fh-wfm-user-angular')({})
 , require('fh-wfm-risk-assessment')
 , require('fh-wfm-vehicle-inspection')
@@ -32,10 +31,8 @@ angular.module('app', [
   data: { columns: 2 }
 })
 , require('fh-wfm-schedule')
-, require('fh-wfm-analytics')
 , require('fh-wfm-camera')
 , require('./home/home')
-, require('./appform/appform')
 , require('fh-wfm-file-angular')({
   uploadEnabled: false,
   listColumnViewId: "column2",
@@ -43,7 +40,6 @@ angular.module('app', [
   detailStateMount: "app.file.detail"
 })
 , require('./schedule/schedule')
-, require('./analytics/analytics')
 , require('./settings')
 ]);
 
