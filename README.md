@@ -15,3 +15,7 @@ This repository should be used in conjunction with these following repos:
 ## Starting (locally)
 
 `grunt serve:local --url=http://localhost:8001`
+
+## Running The Demo Solution Locally
+
+The [Running The Demo Raincatcher Solution Locally](https://github.com/feedhenry-raincatcher/raincatcher-documentation/blob/master/running-locally.adoc) guide explains how to get the Raincatcher demo solution running on your local development machine. This is targeted at developers that wish to extend the existing functionality of Raincatcher modules and demo apps.
