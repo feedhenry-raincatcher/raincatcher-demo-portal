@@ -28,7 +28,7 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, syncService)
 
   syncPool.removeManagers = function() {
     var promises = _.map(syncManagers, function(syncManager) {
-      return syncManager.safeStop();
+      return syncManager.stop();
     });
 
     return $q.all(promises).then(function() {
@@ -49,9 +49,9 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, syncService)
 
     //Initialisation of sync data sets to manage.
     return $q.all([
-      syncService.manage(config.datasetIds.workorders, {}, {}, config.syncOptions),
-      syncService.manage(config.datasetIds.workflows, {}, {}, config.syncOptions),
-      syncService.manage(config.datasetIds.results, {}, {}, config.syncOptions)
+      syncService.manage(config.datasetIds.workorders, config.syncOptions, {}, {}),
+      syncService.manage(config.datasetIds.workflows, config.syncOptions, {}, {}),
+      syncService.manage(config.datasetIds.results, config.syncOptions, {}, {})
     ]).then(function(managers) {
       managers.forEach(function(managerWrapper) {
         syncManagers[managerWrapper.manager.datasetId] = managerWrapper;
