@@ -5,8 +5,25 @@
     "results": "result",
   },
   "syncOptions" : {
-    "sync_frequency" : 5,
-    "storage_strategy": "dom",
-    "do_console_log": false
+    "global":{
+      "sync_frequency" : 1,
+      "storage_strategy": "dom",
+      "do_console_log": false
+    },
+    "workorders":{
+      "sync_frequency" : 2,
+      "storage_strategy": "dom",
+      "do_console_log": false
+    },
+    "workflows":{
+      "sync_frequency" : 3,
+      "storage_strategy": "dom",
+      "do_console_log": false
+    },
+    "results":{
+      "sync_frequency" : 5,
+      "storage_strategy": "dom",
+      "do_console_log": false
+    }
   }
 }
