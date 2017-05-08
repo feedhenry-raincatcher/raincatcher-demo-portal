@@ -48,7 +48,7 @@
     "fh-wfm-workorder": "0.2.4",
     "fh-wfm-workflow": "0.2.5",
     "fh-wfm-workflow-angular": "0.2.4",
-    "fh-wfm-workorder-angular": "0.3.1",
+    "fh-wfm-workorder-angular": "0.3.3-alpha.815.1",
     "lodash": "4.7.0",
     "mediator-js": "^0.9.9",
     "moment": "^2.16.0",
