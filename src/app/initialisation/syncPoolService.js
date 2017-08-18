@@ -13,13 +13,11 @@ var config = require('../config.json');
  *
  * @param $q
  * @param mediator
- * @param workorderSync
- * @param workflowSync
  * @param resultSync
  * @param syncService
  * @returns {{}}
  */
-function SyncPoolService($q, mediator, workorderSync, workflowSync, syncService) {
+function SyncPoolService($q, mediator, syncService) {
   var syncPool = {};
   var syncManagers;
 
@@ -79,4 +77,4 @@ function SyncPoolService($q, mediator, workorderSync, workflowSync, syncService)
   return syncPool;
 }
 
-angular.module('app').service('syncPool', ["$q", "mediator", "workorderSync", "workflowSync", "syncService", SyncPoolService]);
+angular.module('app').service('syncPool', ["$q", "mediator", "syncService", SyncPoolService]);

@@ -4,6 +4,7 @@ var angular = require('angular');
 require('fh-js-sdk/dist/feedhenry-forms.js');
 require('./debugLogsEnablers');
 
+var mediatorModule = require('fh-wfm-mediator');
 var mapModule = require('fh-wfm-map');
 
 angular.module('app', [
@@ -11,7 +12,7 @@ angular.module('app', [
   require('angular-material'),
   require('ng-sortable'),
   require('./feedhenry')
-, require('fh-wfm-mediator'),
+, mediatorModule,
   require('fh-wfm-sync')
 , require('fh-wfm-workorder-angular')({
   mode: "admin",
